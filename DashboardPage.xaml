@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruckEntryApp.DashboardPage"
+             Title="Dashboard">
+
+    <ScrollView>
+
+
+        <Grid
+                BackgroundColor="#220b6e"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+
+            <Frame
+                  Grid.Row="1"
+                  Margin="0,0,0,-40"
+                  BorderColor="#220b6e"
+                  CornerRadius="50"
+                  HasShadow="True"
+                  HeightRequest="700">
+                <Grid
+                          Padding="20,50,20,0"
+                          HorizontalOptions="FillAndExpand"
+                          RowSpacing="20"
+                          VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                </Grid>
+            </Frame>
+
+            <VerticalStackLayout Grid.Row="0" Margin="30,70,30,30" Spacing="15">
+
+               
+                <Border Style="{DynamicResource EntryBorderStyle}  "  >
+                    <SearchBar Grid.Row="0" x:Name="SearchData" CancelButtonColor="Black" Text ="{Binding SearchQuery}" SearchCommand="{Binding SearchCommand}" BackgroundColor="FloralWhite" Grid.Column="0" Placeholder="Search the data">
+
+                    </SearchBar>
+                </Border>
+
+                <!--<Button Grid.Column="6" Text="Print" Command="{Binding PrintCommand}" />-->
+
+            </VerticalStackLayout>
+            
+            
+            <VerticalStackLayout Grid.Row="1" Margin="30,70,30,30" Spacing="15">
+                
+                <Border Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions >
+                        <Label Grid.Column="0" Text="ID" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" FontSize="12"  BackgroundColor="#e2780f" TextColor="White"  />
+                        <Label Grid.Column="1" Text="Agent Name" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  FontSize="12" FontAttributes="Bold"   TextColor="White" BackgroundColor="#e2780f"/>
+                        <Label Grid.Column="2" Text="Phone Number" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="12" FontAttributes="Bold"   TextColor="White" BackgroundColor="#e2780f"/>
+                        <Label Grid.Column="3" Text="Truck Number" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"  FontSize="12" FontAttributes="Bold"  TextColor="White"  BackgroundColor="#e2780f"/>
+                        <Label Grid.Column="4" Text="Driver Name" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="12" FontAttributes="Bold"   TextColor="White" BackgroundColor="#e2780f" />
+                        <Label Grid.Column="5" Text="License Number" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="12" FontAttributes="Bold" TextColor="White"  BackgroundColor="#e2780f"/>
+                        <Label Grid.Column="6" Text="Action" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="12" FontAttributes="Bold" TextColor="White"  BackgroundColor="#e2780f"/>
+                    </Grid>
+                </Border>
+
+                <CollectionView x:Name="CollectionView" SelectionChanged="CollectionView_SelectionChanged" Grid.Row="2" Grid.ColumnSpan="6" ItemsSource="{Binding SearchResults}" SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="{Binding Id}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="12"/>
+                                    <Label Grid.Column="1" Text="{Binding AgentName}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="12" />
+                                    <Label Grid.Column="2" Text="{Binding PhoneNumber}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="12" />
+                                    <Label Grid.Column="3" Text="{Binding TruckNo}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="12" />
+                                    <Label Grid.Column="4" Text="{Binding DriverName}" HorizontalTextAlignment="Center"  VerticalTextAlignment="Center" FontSize="12"/>
+                                    <Label Grid.Column="5" Text="{Binding DL_No}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="12"/>
+                                    <Button Grid.Column="6" Text="Print" Command="{Binding BindingContext.PrintCommand, Source={x:Reference Name = CollectionView}}" CommandParameter="{Binding .}" />
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

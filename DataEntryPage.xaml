@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TruckEntryApp.NewPage1"
+             Title="Truck Entry">
+
+    <ScrollView>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+             <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                 
+                 
+                
+             </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" HorizontalOptions="Center">
+              
+            </StackLayout>
+
+            <Frame
+                 Grid.Row="1"
+                 Margin="0,0,0,-40"
+                
+                 BorderColor="#e2780f"
+                 CornerRadius="50"
+                 HasShadow="True"
+                 >
+             
+             
+                 <Grid
+                 
+                     HorizontalOptions="FillAndExpand"
+                     RowSpacing="20"
+                     VerticalOptions="FillAndExpand">
+                    
+                 
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                    <VerticalStackLayout Grid.Column="0">
+                        <Image   Aspect="AspectFit"   Source="logo.png" WidthRequest="400" />
+
+                        <Label Grid.Row="1"  FontSize="18" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Text="TransactionNo" TextColor="Black" />
+                        <Entry  Margin="0,8,0,0"  IsReadOnly="True" Text="{Binding TransactionNo}" Style="{DynamicResource BasicEntryStyle}"/>
+
+                        <Label Grid.Row="4"  FontSize="18" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Text="Transport Names" TextColor="Black" />
+                        <Entry Margin="0,8,0,0"  Text="{Binding AgentName}" Style="{DynamicResource BasicEntryStyle}"/>
+
+                        <Label Grid.Row="2"  FontSize="18" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Text="TruckNo" TextColor="Black" />
+                        <Entry  Margin="0,8,0,0" Text="{Binding TruckNo}" Style="{DynamicResource BasicEntryStyle}"/>
+
+                        <Label Grid.Row="5"  FontSize="18" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Text="DriverName" TextColor="Black" />
+                        <Entry Margin="0,8,0,0"  Text="{Binding DriverName}" Style="{DynamicResource BasicEntryStyle}"/>
+
+                        <Label Grid.Row="6"  FontSize="18" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Text="Driver License No" TextColor="Black" />
+                        <Entry Margin="0,8,0,0"  Text="{Binding DL_No}" Style="{DynamicResource BasicEntryStyle}"/>
+
+                        <Label Grid.Row="3"  FontSize="18" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Text="PhoneNumber" TextColor="Black" />
+                        <Entry  Margin="0,8,0,0" Text="{Binding PhoneNumber}" Style="{DynamicResource BasicEntryStyle}"/>
+
+                        <!--<Border Style="{DynamicResource EntryBorderStyle}" Margin="5"  >
+                                 <HorizontalStackLayout >
+                                     <Image Style="{DynamicResource ImageEntryIconStyle}">
+                                         <Image.Source>
+                                             <FontImageSource FontFamily="IconFontTypes" Color="{DynamicResource ColorAccent}"/>
+                                         </Image.Source>
+                                     </Image>
+
+                                <Entry  Margin="0,30,0,0"  IsReadOnly="True" Text="{Binding TransactionNo}" Style="{DynamicResource BasicEntryStyle}"/>
+                                     
+                                 </HorizontalStackLayout>
+                         </Border>-->
+
+                        <!--<Border Style="{DynamicResource EntryBorderStyle}" Margin="5" >
+                                <HorizontalStackLayout>
+                                    <Image Style="{DynamicResource ImageEntryIconStyle}">
+                                        <Image.Source>
+                                            <FontImageSource FontFamily="IconFontTypes" Color="{DynamicResource ColorAccent}"/>
+                                        </Image.Source>
+                                    </Image>
+                                    
+                                    <Entry  Placeholder="Truck No" Text="{Binding TruckNo}" Style="{DynamicResource BasicEntryStyle}"/>
+                                </HorizontalStackLayout>
+                            </Border>-->
+
+                        <!--<Border Style="{DynamicResource EntryBorderStyle}" Margin="5" >
+                                <HorizontalStackLayout>
+                                    <Image Style="{DynamicResource ImageEntryIconStyle}">
+                                        <Image.Source>
+                                            <FontImageSource FontFamily="IconFontTypes" Color="{DynamicResource ColorAccent}"/>
+                                        </Image.Source>
+                                    </Image>
+                                   
+                                </HorizontalStackLayout>
+                            </Border>-->
+
+                        <!--<Border Style="{DynamicResource EntryBorderStyle}" Margin="5" >
+                            <HorizontalStackLayout >
+                                <Image Style="{DynamicResource ImageEntryIconStyle}">
+                                    <Image.Source>
+                                        <FontImageSource FontFamily="IconFontTypes" Color="{DynamicResource ColorAccent}"/>
+                                    </Image.Source>
+                                </Image>
+                                
+                            </HorizontalStackLayout>
+                        </Border>-->
+
+                        <!--<Border Style="{DynamicResource EntryBorderStyle}"  Margin="5" >
+                            <HorizontalStackLayout>
+                                <Image Style="{DynamicResource ImageEntryIconStyle}">
+                                    <Image.Source>
+                                        <FontImageSource FontFamily="IconFontTypes" Color="{DynamicResource ColorAccent}"/>
+                                    </Image.Source>
+                                </Image>
+                                <Entry Placeholder="Driver Name" Text="{Binding DriverName}" Style="{DynamicResource BasicEntryStyle}"/>
+                            </HorizontalStackLayout>
+                        </Border>
+
+                        <Border Style="{DynamicResource EntryBorderStyle}" >
+                            <HorizontalStackLayout>
+                                <Image Style="{DynamicResource ImageEntryIconStyle}" Margin="5">
+                                    <Image.Source>
+                                        <FontImageSource FontFamily="IconFontTypes" Color="{DynamicResource ColorAccent}"/>
+                                    </Image.Source>
+                                </Image>
+                                <Entry Placeholder="Driver License No" Text="{Binding DL_No}" Style="{DynamicResource BasicEntryStyle}"/>
+                            </HorizontalStackLayout>
+                        </Border>-->
+
+                        <Button    Grid.Row="7"  Margin="5" BackgroundColor="#e2780f"  Command="{Binding SaveCommand}"  CornerRadius="20"  Text="save" />
+
+                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                    <!--<VerticalStackLayout Grid.Column="1" Spacing="15">
+                            <Label/>
+                            <Label/>
+
+                        <Image Source="DEMO.png"/>
+
+                    </VerticalStackLayout>-->
+                    
+                 </Grid>   
+             </Frame>           
+        </Grid>
+    </ScrollView>
+</ContentPage>
